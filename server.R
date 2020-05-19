@@ -41,7 +41,7 @@ server <- function(input, output) {
     pickerInput(
       inputId = "income",
       label = "Income:",
-      choices = income_bands,
+      choices = levels(factor(income_bands)),
       selected = income_bands,
       options = list(`actions-box` = TRUE, title = "Please select beneficiaries"),
       multiple = T
@@ -52,7 +52,7 @@ server <- function(input, output) {
     pickerInput(
       inputId = "expend",
       label = "Expenditure:",
-      choices = expend_bands,
+      choices = levels(factor(expend_bands)),
       selected = expend_bands,
       options = list(`actions-box` = TRUE, title = "Please select beneficiaries"),
       multiple = T

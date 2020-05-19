@@ -2,7 +2,9 @@
 
 Link to the url of the app: [https://aileen-mcd.shinyapps.io/charity\_data\_app/](https://aileen-mcd.shinyapps.io/charity_data_app/)
 
-This app allows exploration and visualisation of charities in Scotland (using the Scottish Charity Regulator data found [here](https://www.oscr.org.uk/about-charities/search-the-register/charity-register-download/)). Users can not only visualise the data (via charts, maps and high level figures) but also download a subset of the main dataset as csv file to allow further exploration by the user. For more information on the data see the [data dictionary](https://www.oscr.org.uk/media/3788/2018-07-20-description-of-charity-register-download-fields-updated-08_11_2019.pdf). 
+This app allows exploration and visualisation of charities in Scotland. It uses information from the Scottish Charity Register (found [here](https://www.oscr.org.uk/about-charities/search-the-register/charity-register-download/)) supplied by the Office of the Scottish Charity Regulator and licensed under the Open Government Licence v.3.0. 
+
+Users can not only visualise the data (via charts, maps and high level figures) but also download a subset of the main dataset as csv file to allow further exploration by the user. For more information on the data see the [data dictionary](https://www.oscr.org.uk/media/3788/2018-07-20-description-of-charity-register-download-fields-updated-08_11_2019.pdf). 
 
 ## Purpose
 Wanted to make it easier to get insights and an overview of charities in Scotland at a high level. The app allows users to generate insights and comparisons between different areas and purposes. Users can look at questions and problems such as:

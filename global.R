@@ -53,8 +53,8 @@ min_reg_year <- min(lubridate::year(charity_data_main$registered_date))
 max_reg_year <- max(lubridate::year(charity_data_main$registered_date))
 
 # Income & expenditure banding
-income_bands <- as.character(sort(unique(charity_data_main$income_banding)))
-expend_bands <- as.character(sort(unique(charity_data_main$expenditure_banding)))
+income_bands <- factor(unique(charity_data_main$income_banding), levels = c("0-5k", "5-10k", "10-100k", "100k+", "unknown"))
+expend_bands <- factor(unique(charity_data_main$expenditure_banding), levels = c("0-5k", "5-10k", "10-100k", "100k+", "unknown"))
 
 
 
