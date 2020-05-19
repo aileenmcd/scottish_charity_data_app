@@ -32,20 +32,20 @@ This tab shows information on:
 1. **High level figures on number of charities**, % of total Scottish charities and median income of charities (median is taken over the mean because there are some very high income outliers such as universities) 
 2. The **number of charities** with each type of **activity** (e.g. does it do acitivies itself, or does it give to other organisations), **beneficiaries** (e.g. young people, old people etc.) and **purposes** (e.g. education, health etc.). For each of these a single charities can have multiple responses (e.g. can have multiple purposes, activies and beneficiaries) and so the total count of these is much higher than the total number of charities.  
 
-![](images_for_README/screenshot_1)
+    ![](images_for_README/screenshot_1.png)
 
 
 3. Wordcloud of objectives (which is taken directly from the charity’s constitution) - the larger the word the more often it appears within the objective statement of the charities. The top 40 words most frequent words are shown. 
 4. Split of geographical spread - describes how local or widespread the work of the charity is, the graph goes from widest to most local spread. 
 5. Split of income and expentiture of most recent year - income and expenditure have been banded into £0-5k, £5-10k, £10-100k, £100k+ and unknowns. 
 
-![](images_for_README/screenshot_2)
+    ![](images_for_README/screenshot_2.png)
 
 6. Principal Office/Trustees address mapped by postcode. Can click on the number markers to dive into the markers and then once at single markers can click on these to see the charity's name and geographical spread. 
 7. Mapped count of charities by the local authority area in which the charity’s head office or main operating location lies. Local authority geographic area dervied from open source data (see data source section of README). 
 8. Raw data - the data the visualisations are based on. This data too changes with the user filters. The user can download the filtered dataset using the 'download' button and will save to a csv in your downloads folder. The urls in the 'website' field of the dataset are hyperlinks so can click directly to charity's website (were it has been provided to the Regulator). You can also view the table in ascending or descending order of a particular field in the data by clicking on the arrow buttons next to each field title. You can also search for a particular word/term in the filtered data using the search term on the top right of the table (note that this will not change the filtered data and/or visualisations - to do this you want to use the search filter at the top of the page). 
 
-![](images_for_README/screenshot_3)
+    ![](images_for_README/screenshot_3.png)
 
 Note 1: many of the beneficiaries, activies and purposes have been reduced due to length of text on graps e.g. '*The advancement of environmental protection or improvement'* is condensed to *'environ'*. For a full list please see ... in the project. 
 
@@ -56,13 +56,13 @@ This tab allows the user to get focused information on a single purpose (if they
 
 1. The proportion of charities with other purposes - e.g. if select a single purposes can see what % of these charities also have other purposes. Gives an insight into what other objectives these charities have. 
 
-![](images_for_README/screenshot_4)
+    ![](images_for_README/screenshot_4.png)
 
 2. The main operating areas of the charities for the purposes chosen (similar logic to the map on Tab 1). 
 
 3. Shows the top 10 purpose combinations for the charities with the purposes chosen by user (and the count and proportion of the top 10 combinations). In cases when there is more than 5 purposes shows 'more than 5 purposes' to avoid too much information. 
 
-![](images_for_README/screenshot_5)
+![](images_for_README/screenshot_5.png)
 
 ## Languages & technologies
 Written using [R](https://www.r-project.org/about.html) & [Shiny](https://shiny.rstudio.com/) and deployed onto [shinyapps.io](https://www.shinyapps.io/). Currently have free version of www.shinyapps.io and therefore have a limited amount of time/apps (5 applications & 25 active hours).
@@ -90,21 +90,21 @@ Can clone this repo and open the charity_app.Rproj file with R, and run the app 
 ### 1. Scottish Charity Regulator data 
 * Full list of all charities on the Scottish Charity Register. 
 * Date: 4th May 2020
-* URL: https://www.oscr.org.uk/about-charities/search-the-register/charity-register-download/
-* Data dictionary: https://www.oscr.org.uk/media/3788/2018-07-20-description-of-charity-register-download-fields-updated-08_11_2019.pdf
+* URL: [https://www.oscr.org.uk/about-charities/search-the-register/charity-register-download/](https://www.oscr.org.uk/about-charities/search-the-register/charity-register-download/)
+* Data dictionary: [https://www.oscr.org.uk/media/3788/2018-07-20-description-of-charity-register-download-fields-updated-08_11_2019.pdf](https://www.oscr.org.uk/media/3788/2018-07-20-description-of-charity-register-download-fields-updated-08_11_2019.pdf)
 * File type: csv 
 
 
 ### 2. Postcode data 
 * Latitute and longitute of postcodes in UK that allow mapping of postcodes. 
 * Date: 23rd March 2020 (last stated update on website)
-* URL: https://www.freemaptools.com/download-uk-postcode-lat-lng.htm
+* URL: [https://www.freemaptools.com/download-uk-postcode-lat-lng.htm](https://www.freemaptools.com/download-uk-postcode-lat-lng.htm)
 * File type: csv 
 
 ### 3. Scottish Local Authority boundary data
 * Geographic boundary data for Scottish Local Administrative Units Level 1 
 * Date: 2011 (most up to date)
-* URL: https://borders.ukdataservice.ac.uk/easy_download.html
+* URL: [https://borders.ukdataservice.ac.uk/easy_download.html](https://borders.ukdataservice.ac.uk/easy_download.html)
 * File type: .shp (shape file)
 
 
