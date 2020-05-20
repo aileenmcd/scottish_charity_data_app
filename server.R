@@ -12,95 +12,25 @@ server <- function(input, output) {
     shinyjs::reset("all_inputs")
   })
 
-  # Filters that appear when click button for 'advanced filters' -----------
-
-  output$input_year_reg <- renderUI({
-    sliderInput(
-      inputId = "year_reg",
-      label = "Year of Registration",
-      min = min_reg_year,
-      max = max_reg_year,
-      value = c(min_reg_year, max_reg_year),
-      sep = ""
-    ) # stops comma for thousand format
-  })
-
-  output$input_status <- renderUI({
-    pickerInput(
-      inputId = "chosen_status",
-      label = "Status:",
-      choices = status,
-      selected = status,
-      options = list(`actions-box` = TRUE, title = "Please chose status"),
-      multiple = T
-    )
-  })
-
-
-  output$input_incom <- renderUI({
-    pickerInput(
-      inputId = "income",
-      label = "Income:",
-      choices = levels(factor(income_bands)),
-      selected = income_bands,
-      options = list(`actions-box` = TRUE, title = "Please select beneficiaries"),
-      multiple = T
-    )
-  })
-
-  output$input_expend <- renderUI({
-    pickerInput(
-      inputId = "expend",
-      label = "Expenditure:",
-      choices = levels(factor(expend_bands)),
-      selected = expend_bands,
-      options = list(`actions-box` = TRUE, title = "Please select beneficiaries"),
-      multiple = T
-    )
-  })
-
-
-  output$input_activities <- renderUI({
-    pickerInput(
-      inputId = "chosen_activities",
-      label = "Activites:",
-      choices = activities,
-      selected = activities,
-      options = list(`actions-box` = TRUE, title = "Please select activities"),
-      multiple = T
-    )
-  })
-
-  output$input_benef <- renderUI({
-    pickerInput(
-      inputId = "chosen_benef",
-      label = "Beneficiaries:",
-      choices = benef,
-      selected = benef,
-      options = list(`actions-box` = TRUE, title = "Please select beneficiaries"),
-      multiple = T
-    )
-  })
-
-
-
 
 # Data prep ---------------------------------------------------------------
 
   # Subsetting data based on filters chosen  ----------
 
-  subsetted_reshaped_data0 <- reactive({
+  subsetted_reshaped_data <- eventReactive(input$activate_search, {
     charity_data_reshape %>%
       filter(activities %in% input$chosen_activities) %>%
       filter(purposes %in% input$chosen_purpose) %>%
       filter(beneficiaries %in% input$chosen_benef)
-  })
+  }, ignoreNULL = FALSE) #allows the inital state of app to be populated
 
-  subsetted_data <- reactive({
-    activ_purp_benef_charities <- subsetted_reshaped_data0() %>%
+    
+  subsetted_data <- eventReactive(input$activate_search, {
+          
+    
+    activ_purp_benef_charities <- subsetted_reshaped_data() %>%
       distinct(charity_number)
-
-
+    
     charity_data_main %>%
       filter(charity_number %in% activ_purp_benef_charities$charity_number) %>%
       filter(main_operating_location %in% input$chosen_area, geographical_spread %in% input$chosen_geo_spread) %>%
@@ -109,14 +39,10 @@ server <- function(input, output) {
       filter(reg_year <= input$year_reg[2] & reg_year >= input$year_reg[1]) %>%
       filter(charity_status %in% input$chosen_status) %>%
       filter(str_detect(str_to_lower(charity_name), str_to_lower(input$search_text)) | str_detect(str_to_lower(objectives), str_to_lower(input$search_text)))
-  })
-
-  subsetted_reshaped_data <- reactive({
-    subsetted_reshaped_data0() %>%
-      filter(charity_number %in% subsetted_data()$charity_number)
-  })
-
-
+  
+   
+    }, ignoreNULL = FALSE) #allows the inital state of app to be populated
+  
   # Outputs ---------------------------------------------------------------
   
   # Value boxes -----------------------------------
@@ -151,9 +77,14 @@ server <- function(input, output) {
   
   output$act_ben_purp_plots <- renderPlot({
 
+    print("test2")
     
+    for_graphs <- subsetted_reshaped_data() %>%
+      filter(charity_number %in% subsetted_data()$charity_number)
+ 
+  
     # Bar chart of activites counts
-    act_plot <- aggregate_count_function(subsetted_reshaped_data(), activities) %>%
+    act_plot <- aggregate_count_function(for_graphs, activities) %>%
       ggplot(aes(x = reorder(activities, -count), y = count)) +
       geom_col(fill = "seagreen") +
       scale_y_continuous(labels = scales::comma) +
@@ -161,7 +92,7 @@ server <- function(input, output) {
       labs(y = "Number of charities", x = "Activities")
 
     # Bar chart of purposes counts
-    purpose_plot <- aggregate_count_function(subsetted_reshaped_data(), purposes) %>%
+    purpose_plot <- aggregate_count_function(for_graphs, purposes) %>%
       ggplot(aes(x = reorder(purposes, -count), y = count)) +
       geom_col(fill = "seagreen") +
       scale_x_discrete(guide = guide_axis(n.dodge = 2)) +
@@ -170,7 +101,7 @@ server <- function(input, output) {
       labs(y = "Number of charities", x = "Purposes")
 
     # Bar chart of beneficiaries counts
-    benef_plot <- aggregate_count_function(subsetted_reshaped_data(), beneficiaries) %>%
+    benef_plot <- aggregate_count_function(for_graphs, beneficiaries) %>%
       ggplot(aes(x = reorder(beneficiaries, -count), y = count)) +
       geom_col(fill = "seagreen") +
       scale_x_discrete(guide = guide_axis(n.dodge = 2)) +
