@@ -10,6 +10,8 @@ server <- function(input, output) {
   
    observeEvent(input$reset_all, {
     shinyjs::reset("all_inputs")
+     Sys.sleep(5)
+     click("activate_search")
   })
 
 
@@ -76,8 +78,6 @@ server <- function(input, output) {
   # Activites, beneficiaries, purposes bar charts  --------------------------
   
   output$act_ben_purp_plots <- renderPlot({
-
-    print("test2")
     
     for_graphs <- subsetted_reshaped_data() %>%
       filter(charity_number %in% subsetted_data()$charity_number)
@@ -314,7 +314,7 @@ server <- function(input, output) {
   
   # Data prep ----------------------------------------------------------
 
-  single_choice_number_of_purposes <- reactive({
+  single_choice_number_of_purposes <- eventReactive(input$activate_search2, {
     single_choice_chosen_purpose_charities <- charity_data_reshape %>%
       filter(purposes == input$single_purpose_chosen_purpose) %>%
       distinct(charity_number)
@@ -329,7 +329,7 @@ server <- function(input, output) {
       filter(charity_number %in% single_choice_chosen_word_charities$charity_number) %>%
       select(charity_number, purposes) %>%
       distinct(charity_number, purposes)
-  })
+  }, ignoreNULL = FALSE) #allows the inital state of app to be populated
 
   single_choice_charities <- reactive({
     single_choice_number_of_purposes() %>%
@@ -351,7 +351,7 @@ server <- function(input, output) {
   # Bar chart of other puroses  ----------------
   
   output$single_choice_most_other_purposes <- renderPlot({
-    test <- single_choice_number_of_purposes() %>%
+    single_choice_number_of_purposes() %>%
       group_by(purposes) %>%
       summarise(number_of_charities = n()) %>%
       arrange(desc(number_of_charities)) %>%
@@ -365,7 +365,6 @@ server <- function(input, output) {
       theme_classic(base_size = 15) +
       ylab("Number of charities")
 
-    test
   })
   
   # Table of other purpose combinations  ----------------

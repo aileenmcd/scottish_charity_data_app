@@ -57,7 +57,8 @@ dashboardPage(
                   4,
                   textInput(inputId = "search_text", label = "Search:", placeholder = "Search single term")
                 ),
-                column(4, br(), actionButton("hideshow", "Hide/show extra filters"), actionButton("reset_all", "Reset all"), actionButton("activate_search", "Search!"))
+                column(4, br(), actionButton("hideshow", "Hide/show extra filters")),
+                column(4, br(), actionButtonStyled("activate_search", "Search!", type = "success", class="btn-lg"), actionButtonStyled("reset_all", "Reset all", type = "danger"))
               ),
 
               # code that helped with toggling additional filters to show https://github.com/daattali/advanced-shiny/tree/master/simple-toggle
@@ -179,7 +180,10 @@ dashboardPage(
         fluidRow(box(
           title = "Raw data", width = 12, status = "primary", solidHeader = TRUE, collapsible = TRUE,
           downloadButton("download_data"), br(), DT::dataTableOutput("table_out")
-        ))
+        )),
+        # Terms & condition of data requires acknowledge the source of this data
+        fluidRow(align = "center", "This app uses information from the Scottish Charity Register supplied by the Office of the Scottish Charity Regulator and licensed under the Open Government Licence v.3.0.")
+        
       ),
       tabItem(
         "single",
@@ -190,7 +194,7 @@ dashboardPage(
               title = "Filters", width = 12, status = "primary", solidHeader = TRUE, collapsible = TRUE,
 
               column(
-                6,
+                4,
                 pickerInput(
                   inputId = "single_purpose_chosen_purpose",
                   label = "Purpose:",
@@ -199,12 +203,12 @@ dashboardPage(
                 )
               ),
               column(
-                6,
+                5,
                 textInput(inputId = "single_purpose_search_text", label = "Search:", placeholder = "Search single term")
-              )
-            )
-          ),
-
+              ), 
+              column(3, br(),
+                     actionButtonStyled("activate_search2", "Search!", type = "success", class="btn-lg"))
+            )),
           column(
             5, br(),
             valueBoxOutput("single_purpose_count_box", width = 12) %>% withSpinner(color = "#3c8dbc")
@@ -219,7 +223,10 @@ dashboardPage(
           title = "Other purposes & main operating area", width = 12, status = "primary", solidHeader = TRUE, collapsible = TRUE,
           column(6, leafletOutput("single_choice_operating_areas") %>% withSpinner(color = "#3c8dbc")),
           column(6, formattableOutput("single_choice_merged_purposes") %>% withSpinner(color = "#3c8dbc"))
-        ))
+        )),
+        # Terms & condition of data requires acknowledge the source of this data
+        fluidRow(align = "center", "This app uses information from the Scottish Charity Register supplied by the Office of the Scottish Charity Regulator and licensed under the Open Government Licence v.3.0.")
+        
       )
     )
   )

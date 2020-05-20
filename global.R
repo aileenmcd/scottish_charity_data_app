@@ -23,6 +23,7 @@ library("rmapshaper")
 library("shinyjs")
 library("formattable")
 library("shinycssloaders")
+library("dipsaus")
 
 
 
