@@ -27,7 +27,7 @@ There are 2 sections to the app:
 
 ### Tab 1 - All charities
 
-This defaults onto data of all Scottish charities registered with the Scottish Chairty Regulator. The user can use the filters to subset the data (and the resulting visualisations) to only show particular subsets of the data that they are interested in. There are additional filters which can be shown & hidden using the 'Hide/show extra filters' button. All selections can be reset using the 'Reset all' button. The search filter searches for word(s) within the charity name and objectives. 
+This defaults onto data of all Scottish charities registered with the Scottish Chairty Regulator. The user can use the filters to subset the data (and the resulting visualisations) to only show particular subsets of the data that they are interested in. There are additional filters which can be shown & hidden using the 'Hide/show extra filters' button. All selections can be reset using the 'Reset all' button. The search filter searches for word(s) within the charity name and objectives. **Once the filters have been selected click the 'Search' button** for the filters to be applied (this step is required to help app speed). 
 
 This tab shows information on:
 
@@ -54,7 +54,7 @@ Note 1: many of the beneficiaries, activies and purposes have been reduced due t
 Note 2: The boxes that hold the visualisations are collapsible using the minimise symbol in the top right hand corener of each box. 
 
 ### Tab 2 - Single purpose 
-This tab allows the user to get focused information on a single purpose (if they wanted to look into perhaps setting up their own charity and wanted information on what's already out there). The user can select a single purpose from the dropdown list (and also option to include a search term which searches for word(s) within the charity name and objectives. 
+This tab allows the user to get focused information on a single purpose (if they wanted to look into perhaps setting up their own charity and wanted information on what's already out there). The user can select a single purpose from the dropdown list (and also option to include a search term which searches for word(s) within the charity name and objectives. **Once the filters have been selected click the 'Search' button** for the filters to be applied
 
 1. The proportion of charities with other purposes - e.g. if select a single purposes can see what % of these charities also have other purposes. Gives an insight into what other objectives these charities have. 
 
