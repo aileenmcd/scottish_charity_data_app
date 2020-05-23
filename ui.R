@@ -157,7 +157,7 @@ dashboardPage(
         ),
         fluidRow(
           box(
-            title = "Activities, befenficiaries & purposes", width = 12, status = "primary", solidHeader = TRUE, collapsible = TRUE,
+            title = "Activities, beneficiaries & purposes", width = 12, status = "primary", solidHeader = TRUE, collapsible = TRUE,
             plotOutput("act_ben_purp_plots") %>% withSpinner(color = "#3c8dbc")
           )
         ),
