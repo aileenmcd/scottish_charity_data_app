@@ -182,7 +182,7 @@ dashboardPage(
           downloadButton("download_data"), br(), DT::dataTableOutput("table_out")
         )),
         # Terms & condition of data requires acknowledge the source of this data
-        fluidRow(align = "center", "This app uses information from the Scottish Charity Register supplied by the Office of the Scottish Charity Regulator and licensed under the Open Government Licence v.3.0.")
+        fluidRow(align = "center", "This app uses information from the Scottish Charity Register (found ", tags$a("here", href = "https://www.oscr.org.uk/about-charities/search-the-register/charity-register-download/"),") supplied by the Office of the Scottish Charity Regulator and licensed under the Open Government Licence v.3.0. The license can be found", tags$a("here", href = "http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"), ".")
         
       ),
       tabItem(
@@ -225,7 +225,7 @@ dashboardPage(
           column(6, formattableOutput("single_choice_merged_purposes") %>% withSpinner(color = "#3c8dbc"))
         )),
         # Terms & condition of data requires acknowledge the source of this data
-        fluidRow(align = "center", "This app uses information from the Scottish Charity Register supplied by the Office of the Scottish Charity Regulator and licensed under the Open Government Licence v.3.0.")
+        fluidRow(align = "center", "This app uses information from the Scottish Charity Register (found ", tags$a("here", href = "https://www.oscr.org.uk/about-charities/search-the-register/charity-register-download/"),") supplied by the Office of the Scottish Charity Regulator and licensed under the Open Government Licence v.3.0. The license can be found", tags$a("here", href = "http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"), ".")
         
       )
     )

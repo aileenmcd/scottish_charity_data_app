@@ -2,7 +2,7 @@
 
 Link to the url of the app: [https://aileen-mcd.shinyapps.io/charity\_data\_app/](https://aileen-mcd.shinyapps.io/charity_data_app/)
 
-This app allows exploration and visualisation of charities in Scotland. It uses information from the Scottish Charity Register (found [here](https://www.oscr.org.uk/about-charities/search-the-register/charity-register-download/)) supplied by the Office of the Scottish Charity Regulator and licensed under the Open Government Licence v.3.0. 
+This app allows exploration and visualisation of charities in Scotland. It uses information from the Scottish Charity Register (found [here](https://www.oscr.org.uk/about-charities/search-the-register/charity-register-download/)) supplied by the Office of the Scottish Charity Regulator and licensed under the Open Government Licence v.3.0. The licence can be found [here](http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/). 
 
 Users can not only visualise the data (via charts, maps and high level figures) but also download a subset of the main dataset as csv file to allow further exploration by the user. For more information on the data see the [data dictionary](https://www.oscr.org.uk/media/3788/2018-07-20-description-of-charity-register-download-fields-updated-08_11_2019.pdf). 
 
@@ -28,6 +28,8 @@ There are 2 sections to the app:
 ### Tab 1 - All charities
 
 This defaults onto data of all Scottish charities registered with the Scottish Chairty Regulator. The user can use the filters to only show particular subsets of the data (and the resulting visualisations) that they are interested in. There are additional filters which can be shown & hidden using the 'Hide/show extra filters' button. All selections can be reset using the 'Reset all' button. The search filter searches for word(s) within the charity name and objectives. **Once the filters have been selected click the 'Search' button** for the filters to be applied (this step is required to help app speed). 
+
+**Note:** if you are looking for a particular type of charity which isn't a pre-defined purpose category (such as health, education etc. - which are defined in the OSCR data) you can use the 'Search' bar in the filters which will allow you to search the charity name and objectives for particular terms - such as 'homelessness' or 'dementia'. 
 
 This tab shows information on (the numbered yellow boxes in the images correspond to the numbered items in this list):
 
