@@ -2,12 +2,58 @@ dashboardPage(
   dashboardHeader(title = "Scottish Charities"),
   dashboardSidebar(
     sidebarMenu(
+      menuItem("Overview", tabName = "info", icon = icon("info-circle", lib = "font-awesome")),
       menuItem("All charities", tabName = "filterdata", icon = icon("hands-helping", lib = "font-awesome")),
       menuItem("Single purpose", tabName = "single", icon = icon("ribbon", lib = "font-awesome"))
     )
   ),
   dashboardBody(
     tabItems(
+      tabItem(
+        "info",
+        h4("Overview"),
+        div(class = "separator"),
+        tags$p("This app allows exploration and visualisation of charities in Scotland. It uses information from the OSCR Scottish Charity Register (found ", tags$a("here", href ="https://www.oscr.org.uk/about-charities/search-the-register/charity-register-download/"), ") supplied by the Office of the Scottish Charity Regulator and licensed under the Open Government Licence v.3.0. The licence can be found ", tags$a("here", href ="http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"), "."), 
+        div(class = "separator"),
+        tags$p("Users can not only visualise the data (via charts, maps and high level figures) but also download a subset of the main dataset as csv file to allow further exploration by the user. For more information on the data see the ", tags$a("data dictionary", href = "https://www.oscr.org.uk/media/3788/2018-07-20-description-of-charity-register-download-fields-updated-08_11_2019.pdf"),"."),
+        div(class = "separator"),
+        h4("Purpose"),
+        div(class = "separator"),
+        tags$p("To make it easier to get insights and an overview of charities in Scotland at a high level. The app allows users to generate insights and comparisons between different areas and purposes. Users can look at questions and problems such as:"),
+
+        tags$div(
+          tags$ul(
+            tags$li("How many education charities are in my area that only operate locally?"),
+tags$li("How do the number of sports charities within Edinburgh compare to Stirling?, How many of these are for younger people?"),
+tags$li("I want to volunteer to a very small charity (perhaps income less than £10k in the last year) that has a main office close to me. I want to generate a list of these charities and easy links to their websites."),
+tags$li("How many charities are there in Scotland who mainly operates overseas and what are their main purposes and recent income/expentiture levels?"))),
+tags$p("...and many more."),
+div(class = "separator"),
+tags$p("You might be looking to donate, volunteer or want to know more information about charities in a particular area, with a particular purpose or beneficiary group. Alternatively you might be looking to set up own charity that has a particular purpose and you want to know about other charities are already out there with that purpose in case it's possible to get involved in and/or donate to these."),
+div(class = "separator"),
+tags$p("I hope this app will help with these searches."),
+        div(class = "separator"),
+        h4("Demo video"),
+        div(class = "separator"),
+        tags$p("A short demo video of how to use the app ", tags$a("here", href = "https://youtu.be/vbxAOwAMaqQ")),
+div(class = "separator"),
+h4("Further information/instructions and full code"),
+div(class = "separator"),
+tags$p("The README of the Github page for this project",tags$a("here", href = "https://github.com/aileenmcd/scottish_charity_data_app"), "has a more detailed breakdown of each part of the app, with guided instructions and screenshots. It also includes more information on the data used, as well as all the code and packages used." ),
+div(class = "separator"),
+h4("Updating the data"),
+div(class = "separator"),
+tags$p("Currently the app does not connect directly to the Scottish Charity Register site and is manually refreshed. The data is currently up to date of 02/09/2020."),
+div(class = "separator"),
+h4("Feedback and contact"),
+div(class = "separator"),
+tags$p("Always welcome feedback and comments for improvement. Also note it’s a free version of the hosting site so it allows a limited number hours of the app a month."),
+tags$div(
+  tags$ul(
+    tags$li("Email: aileenlmcdonald@gmail.com"),
+    tags$li("Twitter: ", tags$a("here", href = "https://twitter.com/mcd_ails")),
+    tags$li("LinkedIn: ", tags$a("here", href = "https://www.linkedin.com/in/aileenmcdonald/")) 
+        ))),
       tabItem(
         "filterdata",
         fluidRow(column(

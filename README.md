@@ -6,6 +6,8 @@ This app allows exploration and visualisation of charities in Scotland. It uses 
 
 Users can not only visualise the data (via charts, maps and high level figures) but also download a subset of the main dataset as csv file to allow further exploration by the user. For more information on the data see the [data dictionary](https://www.oscr.org.uk/media/3788/2018-07-20-description-of-charity-register-download-fields-updated-08_11_2019.pdf). 
 
+Short demo video of using the app [here](https://youtu.be/vbxAOwAMaqQ).
+
 ## Purpose
 To make it easier to get insights and an overview of charities in Scotland at a high level. The app allows users to generate insights and comparisons between different areas and purposes. Users can look at questions and problems such as:
 
@@ -93,7 +95,7 @@ Can clone this repo and open the charity_app.Rproj file with R, and run the app 
 
 ### 1. Scottish Charity Regulator data 
 * Full list of all charities on the Scottish Charity Register. 
-* Date: 23rd May 2020
+* Date: 2nd September 2020
 * URL: [https://www.oscr.org.uk/about-charities/search-the-register/charity-register-download/](https://www.oscr.org.uk/about-charities/search-the-register/charity-register-download/)
 * Data dictionary: [https://www.oscr.org.uk/media/3788/2018-07-20-description-of-charity-register-download-fields-updated-08_11_2019.pdf](https://www.oscr.org.uk/media/3788/2018-07-20-description-of-charity-register-download-fields-updated-08_11_2019.pdf)
 * File type: csv 
@@ -119,5 +121,5 @@ R version: 4.0.0 (2020-04-24)
 |Package| Version |
 |---|---|  |shinycssloaders | 0.3|   shinyjs|1.1       rmapshaper|0.4.4     tidytext|0.2.4     patchwork|1.0.0     sf|0.9-3     lubridate|1.7.8     formattable|0.2.0.1   leaflet|2.0.3     wordcloud|2.6       RColorBrewer|1.1-2     tm|0.7-7     NLP|0.2-0     shinyWidgets|0.5.1     DT|0.13      shinydashboard|0.7.1     splitstackshape|1.4.8     janitor|2.0.1     forcats|0.5.0     stringr|1.4.0     dplyr|0.8.5     purrr|0.3.4     readr|1.3.1     tidyr|1.0.3     tibble|3.0.1     ggplot2|3.3.0.9tidyverse|1.3.0     shiny|1.4.0.2 
 
-Date: 23/05/2020   
+Date: 02/09/2020   
 Author: [Aileen McDonald](https://twitter.com/mcd_ails)
